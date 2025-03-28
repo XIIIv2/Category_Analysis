@@ -26,6 +26,6 @@ public class Main {
         Map.Entry<String, Double> maxPrice = result.entrySet().stream()
                 .max(Map.Entry.comparingByValue()).get();
 
-        System.out.printf("Max: %s=%s", maxPrice.getKey(), maxPrice.getValue());
+        System.out.printf("Max: %s=%.2f%n", maxPrice.getKey(), maxPrice.getValue());
     }
 }
