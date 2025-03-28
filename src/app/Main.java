@@ -3,6 +3,7 @@ package app;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -23,9 +24,10 @@ public class Main {
 
         System.out.println("Результат: " + result);
 
-        Map.Entry<String, Double> maxPrice = result.entrySet().stream()
-                .max(Map.Entry.comparingByValue()).get();
-
-        System.out.printf("Max: %s=%.2f%n", maxPrice.getKey(), maxPrice.getValue());
+        result.entrySet().stream()
+                .max(Entry.comparingByValue())
+                .ifPresent(maxPrice -> {
+                    System.out.printf("Max average price: %s=%.2f%n", maxPrice.getKey(), maxPrice.getValue());
+                });
     }
 }
